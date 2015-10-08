@@ -1,0 +1,15 @@
+13:22:21 **** Incremental Build of configuration Debug for project Practica2DC ****
+make all 
+Building file: ../barrera.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"barrera.d" -MT"barrera.o" -o "barrera.o" "../barrera.cpp"
+Finished building: ../barrera.cpp
+ 
+Building target: Practica2DC
+Invoking: GCC C++ Linker
+g++  -o "Practica2DC"  ./barrera.o ./main.o   -lpthread
+Finished building target: Practica2DC
+ 
+
+13:22:22 Build Finished (took 1s.172ms)
+
