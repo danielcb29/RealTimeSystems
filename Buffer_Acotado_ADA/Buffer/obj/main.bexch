@@ -1,0 +1,22 @@
+[GENERATED OBJECT FILE]
+b__main.o
+[PROJECT FILES]
+/home/str/Documentos/DanielSTR/Buffer/bufferacotado.gpr
+20151014175749
+[BOUND OBJECT FILES]
+/home/str/Documentos/DanielSTR/Buffer/obj/buffer.o
+/home/str/Documentos/DanielSTR/Buffer/obj/main.o
+[GENERATED SOURCE FILES]
+b__main.ads
+b__main.adb
+b__main.ali
+[RESULTING OPTIONS]
+-L/home/str/Documentos/DanielSTR/Buffer/obj/
+-L/home/str/Documentos/DanielSTR/Buffer/obj/
+-L/usr/gnat/lib/gcc/x86_64-pc-linux-gnu/4.9.3/adalib/
+-static
+-static-libgcc
+/usr/gnat/lib/gcc/x86_64-pc-linux-gnu/4.9.3/adalib/libgnarl.a
+/usr/gnat/lib/gcc/x86_64-pc-linux-gnu/4.9.3/adalib/libgnat.a
+-lpthread
+-lrt

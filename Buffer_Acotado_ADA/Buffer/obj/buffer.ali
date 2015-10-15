@@ -1,0 +1,97 @@
+V "GNAT Lib v2015"
+A -gnatA
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV SIMPLE_BARRIERS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_PROTECTED_TYPES
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+RV MAX_PROTECTED_ENTRIES=2
+
+U buffer%b		buffer.adb		f9989242 NE OO PK IL
+W ada.tags%s		a-tags.adb		a-tags.ali
+W interfaces%s		interfac.ads		interfac.ali
+W system%s		system.ads		system.ali
+W system.soft_links%s	s-soflin.adb		s-soflin.ali
+W system.tasking.protected_objects%s  s-taprob.adb  s-taprob.ali
+W system.tasking.protected_objects.entries%s  s-tpoben.adb  s-tpoben.ali
+W system.tasking.protected_objects.operations%s  s-tpobop.adb  s-tpobop.ali
+
+U buffer%s		buffer.ads		b472f155 EE NE OO PK IL
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W gnat%s		gnat.ads		gnat.ali
+W gnat.io%s		g-io.adb		g-io.ali
+W system%s		system.ads		system.ali
+W system.tasking%s	s-taskin.adb		s-taskin.ali
+W system.tasking.protected_objects%s  s-taprob.adb  s-taprob.ali
+W system.tasking.protected_objects.entries%s  s-tpoben.adb  s-tpoben.ali
+
+D ada.ads		20150506105328 3ffc8e18 ada%s
+D a-except.ads		20150506105328 5250cb69 ada.exceptions%s
+D a-finali.ads		20150506105331 69f99942 ada.finalization%s
+D a-stream.ads		20150506105329 119b8fb3 ada.streams%s
+D a-tags.ads		20150506105332 dc4d0634 ada.tags%s
+D a-unccon.ads		20150506105331 f9eb8f06 ada.unchecked_conversion%s
+D buffer.ads		20151014191122 2b7fcbe7 buffer%s
+D buffer.adb		20151014191827 d2e759a5 buffer%b
+D gnat.ads		20150506105333 fd2ad2f1 gnat%s
+D g-io.ads		20150506105327 9f0d3ab2 gnat.io%s
+D interfac.ads		20150506105327 6033a23f interfaces%s
+D i-c.ads		20150506105326 5421119b interfaces.c%s
+D system.ads		20150506105329 1d274481 system%s
+D s-atacco.ads		20150506105331 4c36d12f system.address_to_access_conversions%s
+D s-exctab.ads		20150506105331 54135002 system.exception_table%s
+D s-finroo.ads		20150506105331 4ff27390 system.finalization_root%s
+D s-linux.ads		20150506105328 2fda6ad1 system.linux%s
+D s-multip.ads		20150506105326 38ac9f73 system.multiprocessors%s
+D s-oscons.ads		20150506142910 4ac7eb08 system.os_constants%s
+D s-osinte.ads		20150506105327 e9e28195 system.os_interface%s
+D s-parame.ads		20150506105331 7e2a0d7f system.parameters%s
+D s-soflin.ads		20150506105328 aa763b52 system.soft_links%s
+D s-stache.ads		20150506105332 a37c21ec system.stack_checking%s
+D s-stausa.ads		20150506105330 017a0a05 system.stack_usage%s
+D s-stalib.ads		20150506105331 fa0a3617 system.standard_library%s
+D s-stoele.ads		20150506105332 2dc34a04 system.storage_elements%s
+D s-tasinf.ads		20150506105329 2b3f8252 system.task_info%s
+D s-taspri.ads		20150506105328 e3ab4429 system.task_primitives%s
+D s-taskin.ads		20150506105332 339749f0 system.tasking%s
+D s-taprob.ads		20150506105327 502249e3 system.tasking.protected_objects%s
+D s-tpoben.ads		20150506105332 b641f948 system.tasking.protected_objects.entries%s
+D s-tpobop.ads		20150506105331 5f548bb3 system.tasking.protected_objects.operations%s
+D s-traent.ads		20150506105327 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20150506105330 9d58a4c0 system.unsigned_types%s
+X 7 buffer.ads
+2K9*buffer 17l5 17e11 8|1b14 21l5 21t11
+3i4*tamano_buffer{integer} 4r22 5r41 8|13r29
+4M9*Index 6r26 12r17 12r26 13r16 13r25
+5I12*Cuenta{natural} 14r22
+6A9*Buffer(integer)<4M9> 15r13
+8W19*Buffer_Acotado 12E7 16e7 8|2b19 20l8 20t22
+9Y13 Quita 9<19 8|3b13 10t10
+9i19 Item{integer} 8|6m10
+10Y13 Pon 10>17 8|12b13 19t10
+10i17 Item{integer} 8|16r25
+12m7 Primero{4M9} 8|6r22 7r10 7r21
+13m7 Ultimo{4M9} 8|15r10 15r20 16r14
+14i7 Nr_En_Buffer{5I12} 8|4r14 8r10 8r26 13r14 17r10 17r26
+15a7 Buf{6A9} 8|6r18 16r10
+X 8 buffer.adb
+3i19 Item{integer}
+12i17 Item{integer}
+X 9 gnat.ads
+34K9*GNAT 7|1r6 1r20 9|37e9
+X 10 g-io.ads
+41K14*IO 7|1w11 1r25 10|91e12
+72U14*Put_Line 8|9s10 18s10
+X 24 s-stausa.ads
+203U14*Initialize 204i<c,__gnat_stack_usage_initialize>22
+268U14*Output_Results 272i<c,__gnat_stack_usage_output_results>22
+
