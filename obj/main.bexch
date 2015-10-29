@@ -1,0 +1,19 @@
+[GENERATED OBJECT FILE]
+b__main.o
+[PROJECT FILES]
+/Users/daniel/Documents/UnEx/RealTimeSystems/barreraada.gpr
+20151021173846
+[BOUND OBJECT FILES]
+/Users/daniel/Documents/UnEx/RealTimeSystems/obj/barrera.o
+/Users/daniel/Documents/UnEx/RealTimeSystems/obj/main.o
+[GENERATED SOURCE FILES]
+b__main.ads
+b__main.adb
+b__main.ali
+[RESULTING OPTIONS]
+-L/Users/daniel/Documents/UnEx/RealTimeSystems/obj/
+-L/Users/daniel/Documents/UnEx/RealTimeSystems/obj/
+-L/usr/local/gnat/lib/gcc/x86_64-apple-darwin13.4.0/4.9.3/adalib/
+-static
+/usr/local/gnat/lib/gcc/x86_64-apple-darwin13.4.0/4.9.3/adalib/libgnarl.a
+/usr/local/gnat/lib/gcc/x86_64-apple-darwin13.4.0/4.9.3/adalib/libgnat.a
