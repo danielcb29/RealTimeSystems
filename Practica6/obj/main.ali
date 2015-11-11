@@ -1,0 +1,148 @@
+V "GNAT Lib v2015"
+M P W=b
+A -mmacosx-version-min=10.11.0
+A -gnatA
+A -mtune=core2
+A -fPIC
+P UA ZX
+
+RN
+RV NO_CALENDAR
+RV NO_DELAY
+RV NO_FIXED_POINT
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_SELECT_STATEMENTS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_TASK_HIERARCHY
+RV NO_TASKING
+RV NO_DEFAULT_INITIALIZATION
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+RV MAX_TASKS=1+
+RV MAX_ENTRY_QUEUE_LENGTH=1+
+
+U main%b		main.adb		826654bb NE OO SU
+W ada%s			ada.ads			ada.ali
+W ada.calendar%s	a-calend.adb		a-calend.ali
+W ada.real_time%s	a-reatim.adb		a-reatim.ali
+W ada.real_time.delays%s  a-retide.adb		a-retide.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W controlador%s		controlador.adb		controlador.ali
+W gnat%s		gnat.ads		gnat.ali
+W gnat.io%s		g-io.adb		g-io.ali
+W system%s		system.ads		system.ali
+W system.img_int%s	s-imgint.adb		s-imgint.ali
+W system.parameters%s	s-parame.adb		s-parame.ali
+W system.soft_links%s	s-soflin.adb		s-soflin.ali
+W system.task_info%s	s-tasinf.adb		s-tasinf.ali
+W system.tasking%s	s-taskin.adb		s-taskin.ali
+W system.tasking.protected_objects%s  s-taprob.adb  s-taprob.ali
+W system.tasking.protected_objects.operations%s  s-tpobop.adb  s-tpobop.ali
+W system.tasking.stages%s  s-tassta.adb		s-tassta.ali
+
+D ada.ads		20150506105328 3ffc8e18 ada%s
+D a-calend.ads		20150506105330 d986d312 ada.calendar%s
+D a-except.ads		20150506105328 5250cb69 ada.exceptions%s
+D a-finali.ads		20150506105331 69f99942 ada.finalization%s
+D a-interr.ads		20150506105331 391cab36 ada.interrupts%s
+D a-intnam.ads		20150506105330 e106b7a5 ada.interrupts.names%s
+D a-reatim.ads		20150506105328 a5838d5a ada.real_time%s
+D a-retide.ads		20150506105329 081cdaa4 ada.real_time.delays%s
+D a-stream.ads		20150506105329 119b8fb3 ada.streams%s
+D a-tags.ads		20150506105332 dc4d0634 ada.tags%s
+D a-unccon.ads		20150506105331 f9eb8f06 ada.unchecked_conversion%s
+D controlador.ads	20151104183418 19cfb6a2 controlador%s
+D gnat.ads		20150506105333 fd2ad2f1 gnat%s
+D g-io.ads		20150506105327 9f0d3ab2 gnat.io%s
+D interfac.ads		20150506105327 6033a23f interfaces%s
+D i-c.ads		20150506105326 5421119b interfaces.c%s
+D main.adb		20151104201420 78a186e3 main%b
+D system.ads		20150506105331 100301f7 system%s
+D s-atacco.ads		20150506105331 4c36d12f system.address_to_access_conversions%s
+D s-exctab.ads		20150506105331 54135002 system.exception_table%s
+D s-finroo.ads		20150506105331 4ff27390 system.finalization_root%s
+D s-imgint.ads		20150506105328 02dbe0c2 system.img_int%s
+D s-interr.ads		20150506105327 269c22db system.interrupts%s
+D s-multip.ads		20150506105326 38ac9f73 system.multiprocessors%s
+D s-oscons.ads		20150513081834 076e9884 system.os_constants%s
+D s-osinte.ads		20150506105331 bd5cd597 system.os_interface%s
+D s-parame.ads		20150506105331 7e2a0d7f system.parameters%s
+D s-soflin.ads		20150506105328 aa763b52 system.soft_links%s
+D s-stache.ads		20150506105332 a37c21ec system.stack_checking%s
+D s-stausa.ads		20150506105330 017a0a05 system.stack_usage%s
+D s-stalib.ads		20150506105331 fa0a3617 system.standard_library%s
+D s-stoele.ads		20150506105332 2dc34a04 system.storage_elements%s
+D s-tasinf.ads		20150506105329 801abd01 system.task_info%s
+D s-taspri.ads		20150506105328 e3ab4429 system.task_primitives%s
+D s-taprop.ads		20150506105327 1dd2e1b6 system.task_primitives.operations%s
+D s-taskin.ads		20150506105332 339749f0 system.tasking%s
+D s-taprob.ads		20150506105327 502249e3 system.tasking.protected_objects%s
+D s-tpoben.ads		20150506105332 b641f948 system.tasking.protected_objects.entries%s
+D s-tpobop.ads		20150506105331 5f548bb3 system.tasking.protected_objects.operations%s
+D s-tassta.ads		20150506105328 70812003 system.tasking.stages%s
+D s-traent.ads		20150506105327 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20150506105330 9d58a4c0 system.unsigned_types%s
+X 1 ada.ads
+16K9*Ada 19e8 17|3r6 3r25 4r6 4r24 12r24 22r11 75r12
+X 2 a-calend.ads
+36K13*Calendar 382e17 17|4w10 4r28 12r28
+38I9*Time<200I9> 17|12r37
+44I12*Year_Number{integer} 17|21r16
+45I12*Month_Number{integer} 17|20r13
+46I12*Day_Number{integer} 17|19r13
+50O12*Day_Duration{duration} 17|15r16
+52V13*Clock{38I9} 17|28s25
+58V13*Year{44I12} 17|35s20
+59V13*Month{45I12} 17|34s17
+60V13*Day{46I12} 17|33s17
+61V13*Seconds{50O12} 17|29s17
+200I9 Time_Rep<long_long_integer>
+X 7 a-reatim.ads
+39K13*Real_Time 146e18 17|3w10 3r29 22r15 75r16
+45O9*Time<duration> 17|22r25 75r26
+50O9*Time_Span<duration> 17|13r19 14r19 23r13 76r22
+57V13*Clock{45O9} 17|49s21 81s21
+59V14*"+"{45O9} 17|50s22 82s22
+89V13*Milliseconds{50O9} 17|26s20 27s20 48s17 80s23
+X 12 controlador.ads
+4K9*controlador 15e16 17|1w6 1r23
+5w14*ObjetoControlador 17|61r13
+6Y13 Wait 17|61s31
+X 13 gnat.ads
+34K9*GNAT 37e9 17|2r6 2r20
+X 14 g-io.ads
+41K14*IO 91e12 17|2w11 2r25
+68U14*Put 17|37s10 38s10 39s10 40s10 41s10 42s10 43s10 44s10 45s10 46s10
+. 84s10 85s10
+72U14*Put_Line 17|36s10 47s10 66s16 86s10
+X 17 main.adb
+5U11*Main 5b11 97l5 97t9
+7i4 varContador{integer} 90m28 90r28 91m33 91r33 92m35 92r35
+8P9 contador(integer) 10r39 55r42 73r43
+10T14 mostrarHora 10d26 11b14 53t7 90r16
+10p26 valContador{8P9} 25r13
+12i10 tiempoActal{2|38I9} 28m10 29r25 33r21 34r23 35r25
+13o10 intUno{7|50O9} 26m10
+14o10 intDos{7|50O9} 27m10
+15o10 s_d{2|50O12} 29m10 30r23 31r24 32r23
+16i10 h{integer} 30m10 43r28
+17i10 m{integer} 31m10 45r28
+18i7 s{integer} 32m10 47r33
+19i7 dia{2|46I12} 33m10 37r28
+20i7 mes{2|45I12} 34m10 39r28
+21i7 year_a{2|44I12} 35m10 41r28
+22o7 n{7|45O9} 49m16 50m16 50r20 51r25
+23o7 int{7|50O9} 48m10 50r24
+55T14 contarControlC 55d29 56b14 71t7 91r18
+55p29 valContador{8P9} 58r13 62r13 62r32
+73T14 mostrarControlC 73d30 74b14 88t7 92r19
+73p30 valContador{8P9} 79r16 85r28
+75o8 n{7|45O9} 81m16 82m16 82r20 83r25
+76o16 int{7|50O9} 80m16 82r24
+90t4 tareaHora{10T14}
+91t4 tareaContar{55T14}
+92t4 tareaMostrar{73T14}
+X 30 s-stausa.ads
+203U14*Initialize 204i<c,__gnat_stack_usage_initialize>22
+268U14*Output_Results 272i<c,__gnat_stack_usage_output_results>22
+
