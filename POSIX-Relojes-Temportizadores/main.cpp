@@ -1,3 +1,5 @@
+//Practica # 5- Relojes , temporizadores y retardos en POSIX
+//Daniel Correa Barrios
 #include <iostream>
 #include <stdio.h>
 #include <signal.h>
@@ -6,7 +8,6 @@
 #include <errno.h>
 using namespace std;
 void* wait_sigint(void* cont){
-	printf("d");
 	sigset_t set;
 	int sig;
 	int *counter = (int*) cont;
@@ -16,7 +17,6 @@ void* wait_sigint(void* cont){
 	pthread_sigmask(SIG_BLOCK,&set,NULL);
 	sigemptyset(&set);
 	sigaddset(&set,SIGINT);
-	pthread_sigmask(SIG_BLOCK,&set,NULL);
 	for(int i=0;i<10;i++){
 		if(sigwait(&set,&sig) != 0) pthread_exit((void*)-1);
 			if(sig==SIGINT){
@@ -32,8 +32,15 @@ void* wait_sigint(void* cont){
 
 }
 void* count_wait_sigint(void* counter){
-	int signum;
 	sigset_t set;
+	sigemptyset(&set);
+	sigaddset(&set,SIGRTMIN);
+	sigaddset(&set,SIGINT);
+	pthread_sigmask(SIG_BLOCK,&set,NULL);
+	sigemptyset(&set);
+	sigaddset(&set,SIGRTMIN);
+	int signum;
+
 	struct sigevent sig;
 	timer_t timer;
 	struct itimerspec required;
@@ -48,12 +55,10 @@ void* count_wait_sigint(void* counter){
 	required.it_interval = period;
 	int r_cr = 0;
 	r_cr = timer_create(CLOCK_REALTIME,&sig,&timer);
-	sigemptyset(&set);
-	sigaddset(&set,SIGRTMIN);
-	sigaddset(&set,SIGINT);
+
 	int r_sr =0;
 	r_sr = timer_settime(timer,TIMER_ABSTIME,&required,NULL);
-	pthread_sigmask(SIG_BLOCK,&set,NULL);
+
 	int *c = (int*) counter;
 	while(1){
 		if(sigwait(&set,&signum));
@@ -128,13 +133,14 @@ int main() {
 	sigset_t set;
 	pthread_t hilo_reloj,hilo_sigint,hilo_sigrt;
 	int contador = 0;
-	pthread_create(&hilo_reloj,NULL,print_time,NULL);
-	pthread_create(&hilo_sigint,NULL,wait_sigint,&contador);
-	pthread_create(&hilo_sigrt,NULL,count_wait_sigint,&contador);
 	sigemptyset(&set);
 	sigaddset(&set,SIGINT);
 	sigaddset(&set,SIGRTMIN);
 	pthread_sigmask(SIG_BLOCK,&set,NULL);
+	pthread_create(&hilo_reloj,NULL,print_time,NULL);
+	pthread_create(&hilo_sigint,NULL,wait_sigint,&contador);
+	pthread_create(&hilo_sigrt,NULL,count_wait_sigint,&contador);
+
 	pthread_join(hilo_sigint, NULL);
 
     return 0;
