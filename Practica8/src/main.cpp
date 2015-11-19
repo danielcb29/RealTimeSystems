@@ -17,7 +17,7 @@ typedef struct {
 } marco_t;
 
 int get_periodo(timespec p){
-	int result = p.tv_sec * 1000 + p.tv_nsec/100000;
+	int result = p.tv_sec * 1000 + p.tv_nsec/1000000;
 	return result;
 }
 
@@ -36,34 +36,30 @@ void spin_m(void *p)
 
 void* funcion_hebra(void* param){
 
+	marco_t* i = (marco_t*)param;
 
 	sched_param estructura_prioridades;
-	int valor_prioridad = sched_get_priority_max(SCHED_FIFO);
-	estructura_prioridades.__sched_priority = valor_prioridad;
+	int politica;
+	pthread_getschedparam(pthread_self(),&politica,&estructura_prioridades);
+	estructura_prioridades.__sched_priority = i->prioridad;
 
 	pthread_setschedparam(pthread_self(),SCHED_FIFO,&estructura_prioridades);
 
 
-	marco_t* i = (marco_t*)param;
-	timespec tiempo_critico =  i->tcritico;
-	clock_nanosleep(CLOCK_REALTIME,TIMER_ABSTIME ,&tiempo_critico,NULL);
 
 
-	struct timespec sig_time = tiempo_critico;
-	timespec p = i->periodo;
-	int c = i->timepo_eje;
+	clock_nanosleep(CLOCK_REALTIME,TIMER_ABSTIME ,&i->tcritico,NULL);
 
-	/*struct sched_param param_priority;
-	int polity;
-	pthread_getschedparam(pthread_self(), &polity,  &param_priority);*/
+
+	struct timespec sig_time;
+	ADD(&sig_time,&i->tcritico, &i->periodo);
 
 	while(true){
-		cout << "Hilo de id:" << i->id << " con prioridad:" << i->prioridad << " inicia la accion periodica" << endl;
-		//printf("Ejecutando tarea con prioridad: %i \n",param_priority.__sched_priority);
-		spin_m(&c);
-		cout << "Hilo de id:" << i->id << " termina la accion periodica" << endl;
+		printf("Hilo de id: %i con prioridad: %i  inicia la accion periodica \n",i->id,i->prioridad);
+		spin_m(&i->timepo_eje);
+		printf("Hilo de id:%i  termina la accion periodica \n" ,i->id);
 		clock_nanosleep(CLOCK_REALTIME,TIMER_ABSTIME ,&sig_time,NULL);
-		ACUM(&sig_time,&p);
+		ACUM(&sig_time,&i->periodo);
 	}
 
 
@@ -73,16 +69,17 @@ void* funcion_hebra(void* param){
 void* mostrar_tiempos(void* t_crit){
 	timespec* tiempo_critico = (timespec*) t_crit;
 	timespec const_time;
-	const_time.tv_nsec = 10*100000;
+	const_time.tv_nsec = 10*1000000;
 	const_time.tv_sec = 0;
 
-	timespec sig_time = const_time;
+	timespec sig_time;
+	ADD(&sig_time, &const_time,tiempo_critico);
 
 
 	clock_nanosleep(CLOCK_REALTIME,TIMER_ABSTIME ,tiempo_critico,NULL);
 
 	for(int i = 0; i<200; i++){
-		cout << "*******************************" << get_periodo(sig_time) << "ms **************************" << endl;
+		printf ("******************************* %i ms ************************** \n",i*10);
 		clock_nanosleep(CLOCK_REALTIME,TIMER_ABSTIME ,&sig_time,NULL);
 		ACUM(&sig_time,&const_time);
 
@@ -107,7 +104,6 @@ int calcularR(marco_t* marco){
 				if(marco[j].prioridad > marco[i].prioridad){
 					float valor_w = 0;
 					int periodo_j =  get_periodo(marco[j].periodo);
-					//int periodo_j = marco[j].periodo.tv_sec * 1000 + marco[j].periodo.tv_nsec/100000;
 					valor_w = ceil(((float) rant[i] / periodo_j))*marco[j].timepo_eje;
 					suma += valor_w;
 				}
@@ -125,7 +121,6 @@ int calcularR(marco_t* marco){
 			}
 		}
 		cout << "EL hilo de id: "<<marco[i].id << " tiene un tiempo de respuesta:" <<  r[i] << " ms y un plazo de" <<  get_periodo(marco[i].periodo) << " ms" << endl;
-		//printf("EL hilo de id: %i tiene un tiempo de respuesta: %i ms y un plazo de %i ms",marco[i].id,r[i],get_periodo(marco[i].periodo));
 	}
 	return planificable;
 }
@@ -140,28 +135,28 @@ int main() {
 	array_marco[0].timepo_eje = 100;
 	timespec tm1;
 	tm1.tv_sec = 0;
-	tm1.tv_nsec = 300*100000;
-	array_marco[0].periodo = tm1;
+	tm1.tv_nsec = 300*1000000;
+	COPY(&array_marco[0].periodo,&tm1);
 	array_marco[0].prioridad = 3;
-	array_marco[0].tcritico = current_time;
+	COPY(&array_marco[0].tcritico, &current_time);
 
 	array_marco[1].id = 2;
 	array_marco[1].timepo_eje = 120;
 	timespec tm2;
 	tm2.tv_sec = 0;
-	tm2.tv_nsec = 400*100000;
-	array_marco[1].periodo = tm2;
+	tm2.tv_nsec = 400*1000000;
+	COPY(&array_marco[1].periodo,&tm2);
 	array_marco[1].prioridad = 2;
-	array_marco[1].tcritico = current_time;
+	COPY(&array_marco[1].tcritico, &current_time);
 
 	array_marco[2].id = 3;
 	array_marco[2].timepo_eje = 150;
 	timespec tm3;
 	tm3.tv_sec = 0;
-	tm3.tv_nsec = 600*100000;
-	array_marco[2].periodo = tm3;
+	tm3.tv_nsec = 600*1000000;
+	COPY(&array_marco[2].periodo,&tm3);
 	array_marco[2].prioridad = 1;
-	array_marco[2].tcritico = current_time;
+	COPY(&array_marco[2].tcritico,&current_time);
 
 	int result = calcularR(array_marco);
 	cout << "Resultado planificacion: " << result << endl;
@@ -181,11 +176,6 @@ int main() {
 	pthread_create(&hilo_marco1,NULL,funcion_hebra,&array_marco[0]);
 	pthread_create(&hilo_marco2,NULL,funcion_hebra,&array_marco[1]);
 	pthread_create(&hilo_marco3,NULL,funcion_hebra,&array_marco[2]);
-
-
-
-
-
 	pthread_join(hilo_showtime,NULL);
 
 
