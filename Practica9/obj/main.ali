@@ -1,0 +1,136 @@
+V "GNAT Lib v2015"
+M P W=b
+A -gnatA
+A -mtune=generic
+A -march=x86-64
+P TF  ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_DELAY
+RV NO_FIXED_POINT
+RV NO_LOCAL_ALLOCATORS
+RV NO_STANDARD_ALLOCATORS_AFTER_ELABORATION
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_TASK_ALLOCATORS
+RV NO_TASK_HIERARCHY
+RV NO_TASKING
+RV STATIC_PRIORITIES
+RV NO_DEFAULT_INITIALIZATION
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+RV MAX_TASKS=1+
+
+U main%b		main.adb		d09d8306 NE OO SU
+W ada%s			ada.ads			ada.ali
+W ada.real_time%s	a-reatim.adb		a-reatim.ali
+W ada.real_time.delays%s  a-retide.adb		a-retide.ali
+W gnat%s		gnat.ads		gnat.ali
+W gnat.io%s		g-io.adb		g-io.ali
+W system%s		system.ads		system.ali
+W system.concat_3%s	s-conca3.adb		s-conca3.ali
+W system.concat_5%s	s-conca5.adb		s-conca5.ali
+W system.img_int%s	s-imgint.adb		s-imgint.ali
+W system.img_lld%s	s-imglld.adb		s-imglld.ali
+W system.parameters%s	s-parame.adb		s-parame.ali
+W system.soft_links%s	s-soflin.adb		s-soflin.ali
+W system.task_info%s	s-tasinf.adb		s-tasinf.ali
+W system.tasking%s	s-taskin.adb		s-taskin.ali
+W system.tasking.stages%s  s-tassta.adb		s-tassta.ali
+
+D ada.ads		20150506105328 3ffc8e18 ada%s
+D a-except.ads		20150506105328 5250cb69 ada.exceptions%s
+D a-reatim.ads		20150506105328 a5838d5a ada.real_time%s
+D a-retide.ads		20150506105329 081cdaa4 ada.real_time.delays%s
+D a-unccon.ads		20150506105331 f9eb8f06 ada.unchecked_conversion%s
+D gnat.ads		20150506105333 fd2ad2f1 gnat%s
+D g-io.ads		20150506105327 9f0d3ab2 gnat.io%s
+D interfac.ads		20150506105327 6033a23f interfaces%s
+D i-c.ads		20150506105326 5421119b interfaces.c%s
+D main.adb		20151125201020 f734706f main%b
+D system.ads		20150506105329 1d274481 system%s
+D s-atacco.ads		20150506105331 4c36d12f system.address_to_access_conversions%s
+D s-conca3.ads		20150506105332 0b705ca5 system.concat_3%s
+D s-conca5.ads		20150506105328 875e432e system.concat_5%s
+D s-exctab.ads		20150506105331 54135002 system.exception_table%s
+D s-imgint.ads		20150506105328 02dbe0c2 system.img_int%s
+D s-imglld.ads		20150506105332 f3220969 system.img_lld%s
+D s-linux.ads		20150506105328 2fda6ad1 system.linux%s
+D s-multip.ads		20150506105326 38ac9f73 system.multiprocessors%s
+D s-oscons.ads		20150506142910 4ac7eb08 system.os_constants%s
+D s-osinte.ads		20150506105327 e9e28195 system.os_interface%s
+D s-parame.ads		20150506105331 7e2a0d7f system.parameters%s
+D s-soflin.ads		20150506105328 aa763b52 system.soft_links%s
+D s-stache.ads		20150506105332 a37c21ec system.stack_checking%s
+D s-stausa.ads		20150506105330 017a0a05 system.stack_usage%s
+D s-stalib.ads		20150506105331 fa0a3617 system.standard_library%s
+D s-stoele.ads		20150506105332 2dc34a04 system.storage_elements%s
+D s-tasinf.ads		20150506105329 2b3f8252 system.task_info%s
+D s-taspri.ads		20150506105328 e3ab4429 system.task_primitives%s
+D s-taprop.ads		20150506105327 1dd2e1b6 system.task_primitives.operations%s
+D s-taskin.ads		20150506105332 339749f0 system.tasking%s
+D s-tassta.ads		20150506105328 70812003 system.tasking.stages%s
+D s-traent.ads		20150506105327 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20150506105330 9d58a4c0 system.unsigned_types%s
+X 1 ada.ads
+16K9*Ada 19e8 10|3r6 3r25
+X 3 a-reatim.ads
+39K13*Real_Time 146e18 10|3w10 3r29
+45O9*Time<duration> 10|7r39 8r8 9r8 11r23 16r12 37r11 58r11
+50O9*Time_Span<duration> 10|10r9 15r11 38r13
+57V13*Clock{45O9} 10|84s8 86s8 90s15
+59V14*"+"{45O9} 10|45s16 66s16 90s21
+62V14*"-"{50O9} 10|87s11
+84V13*To_Duration{duration} 10|88s28
+89V13*Milliseconds{50O9} 10|44s17 90s23 98s21 104s21 110s22
+X 6 gnat.ads
+34K9*GNAT 37e9 10|2r6 2r20
+X 7 g-io.ads
+41K14*IO 91e12 10|2w11 2r25
+72U14*Put_Line 10|43s10 63s10 65s10 88s4
+X 10 main.adb
+5U11*Main 5b11 116l5 116t9
+7P9 InstanteCritico(3|45O9) 33r35
+8o4 Ti{3|45O9} 84m4 87r12
+9o4 Tf{3|45O9} 86m4 87r9
+10o4 dif{3|50O9} 87m4 88r40
+11o4 TCritico{3|45O9} 90m4 92m40 92r40 97r21 103r21 109r22
+13R9 marco_t 17e14 19r37 77r23 78r22 79r23
+14i7 id{integer} 63r52 65r52 94m16 100m16 106m17
+14i10 prioridad{integer} 55r30 63r96 96m16 102m16 108m17
+14i20 c{integer} 64r24 95m16 101m16 107m17
+15o7 t{3|50O9} 66r25 98m16 104m16 110m17
+16o7 ic{3|45O9} 60r26 61r18 97m16 103m16 109m17
+19P9 MarcoTemporal(13R9) 54r31
+21U14 spin_m 21b14 21>21 31t7 64s10 85s4
+21i21 p{integer} 27r24
+22i7 C_1MS{integer} 27r16
+23i7 DIM{integer} 25r20 29r18
+24i7 limit{integer} 27m7 28r19
+25a7 a(integer) 29m10
+28i11 i{integer} 29r12 29r26
+33T14 mostrar_tiempos 33d30 35e7 36b14 49t7 51r32 92r24
+33p30 inc{7P9} 40r19 41r11
+37o7 n{3|45O9} 41m7 45m10 45r14 46r22
+38o7 int{3|50O9} 44m10 45r18
+42i11 i{integer} 43r58
+51P9 tareaMostrar(33T14) 52r17
+52p4 objMostrar{51P9} 92m7
+54T14 funcion_hebra 54d28 56e7 57b14 70t7 72r37 112r25 113r26 114r25
+54p28 mt{19P9} 55r23 60r19 61r11 63r45 63r89 64r17 65r45 66r18
+58o7 n{3|45O9} 61m7 66m10 66r14 67r22
+72P9 tareaFuncionHebra(54T14) 73r17 74r18 75r17
+73p4 primerHilo{72P9} 112m7
+74p4 segundoHilo{72P9} 113m7
+75p4 tercerHilo{72P9} 114m7
+77r4 marcoUno{13R9} 94m7 95m7 96m7 97m7 98m7 112m39 112r39
+78r4 marcoDos{13R9} 100m7 101m7 102m7 103m7 104m7 113m40 113r40
+79r4 marcoTres{13R9} 106m7 107m7 108m7 109m7 110m7 114m39 114r39
+X 11 system.ads
+37K9*System 10|4w6 4r18 11|155e11
+108I12*Any_Priority{integer}
+109I12*Priority{108I12} 10|34r23
+X 25 s-stausa.ads
+203U14*Initialize 204i<c,__gnat_stack_usage_initialize>22
+268U14*Output_Results 272i<c,__gnat_stack_usage_output_results>22
+
